@@ -1,0 +1,106 @@
+﻿@model WebApplication.Web.Models.Collection
+
+@{
+    ViewData["Title"] = "CollectionDetails";
+}
+<div class="collectionDetailsHeader">
+    Collection Details
+</div>
+<br />
+<div class="collectionDetailsAccount">
+    <h2>@Model.CollectionName</h2>
+    </div>
+<br />
+<div class="container" id="containerCollDetailsAcount">
+
+    <div class="row">
+        <div class="col-lg-4" id="comicStatsAccountHeroes">
+            <div id="topCBTitleAccount">
+                Top Comic Book Heroes
+            </div>
+            <ul>
+                @foreach (string item in ViewBag.TopHeroes)
+                {
+                    <li>@item</li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-lg-4" id="comicStatsAccountPubs">
+            <div id="topCBTitleAccount">
+                Top Publishers
+            </div>
+            <ul>
+                @foreach (string item in ViewBag.TopPublishers)
+                {
+                    <li>@item</li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-lg-4" id="comicStatsAccountWriters">
+            <div id="topCBTitleAccount">
+                Top Writers
+            </div>
+            <ul>
+                @foreach (string item in ViewBag.TopWriters)
+                {
+                    <li>@item</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <div class="titleCollDetailsTable">
+                    Title
+                </div>
+            </th>
+            <th>
+                <div class="titleCollDetailsTable">
+                    Publisher
+                </div>
+            </th>
+            <th>
+                <div class="descCollDetailsTable">
+                    Description
+                </div>
+            </th>
+            <th>
+                <div class="pubDateCollDetailsTable">
+                    Publish Date
+                </div>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.ComicsInCollection)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Publisher)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublishDate)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Details", "ComicDetails", new { comicId = item.ComicId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

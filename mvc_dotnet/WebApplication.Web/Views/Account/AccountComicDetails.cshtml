@@ -1,0 +1,56 @@
+﻿@model WebApplication.Web.Models.Comic
+
+@{
+    ViewData["Title"] = "ComicDetails";
+}
+<body class="accountComicDetails">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-6">
+                <h2><b><class id="comicDetailsHead"> Comic Details</class></b></h2>
+                <br />
+                <h4> <b><class id="comicDetails">TITLE: </class></b> @Html.DisplayFor(model => model.Title)</h4>
+                <br />
+                <h4> <b><class id="comicDetails">PUBLISHER: </class></b> @Html.DisplayFor(model => model.Publisher)</h4>
+                <br />
+                <h4><b><class id="comicDetails">AUTHOR: </class></b>@Html.DisplayFor(model => model.Author)</h4>
+                <br />
+                <h4><b><class id="comicDetails">DATE PUBLISHED: </class></b>@Html.DisplayFor(model => model.PublishDate) </h4>
+                <br />
+                <h4><b><class id="comicDetails">DESCRIPTION: </class></b>@Html.DisplayFor(model => model.Description)</h4>
+                <br />
+                <h4><b><class id="comicDetails"> CHARACTERS: </class></b></h4>
+                <br />
+
+
+                @foreach (var item in Model.Characters)
+                {
+                    <ul>
+                        <li>
+                            @Html.DisplayFor(modelItem => item) <form action="DeleteCharacter" method="post">
+                                <input type="submit" value="Delete">
+                                <input type="hidden" name="characterName" id="characterId" value="@item" />
+                                <input type="hidden" name="comicId" id="comicId" value="@Model.ComicId" />
+                            </form>
+                        </li>
+                    </ul>
+
+                    <br />
+                }
+               
+                @Html.ActionLink("Add a character", "AddCharacter", new { comicId = @Model.ComicId })
+                <br />
+                <br />
+                <a asp-action="Index"><b>Back to List</b></a>
+            </div>
+
+            <div class="col-lg-4">
+                <image src=@Model.ImageUrl></image>
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+</body>
+

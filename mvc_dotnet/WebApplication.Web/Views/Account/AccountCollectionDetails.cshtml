@@ -1,0 +1,138 @@
+﻿@model WebApplication.Web.Models.Collection
+
+@{
+    ViewData["Title"] = "CollectionDetails";
+}
+<div class="collectionDetailsHeader">
+    Collection Details
+</div>
+<br />
+<div class="collectionDetailsAccount">
+    @Model.CollectionName:
+</div>
+<br />
+<br />
+<div class="container" id="containerCollDetailsAcount">
+
+    <div class="row">
+        <div class="col-lg-4" id="comicStatsAccountHeroes">
+            <div id="topCBTitleAccount">
+                Top Comic Book Heroes
+            </div>
+            <ul>
+                @foreach (string item in ViewBag.TopHeroes)
+                {
+                    <li>@item</li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-lg-4" id="comicStatsAccountPubs">
+            <div id="topCBTitleAccount">
+                Top Publishers
+            </div>
+            <ul>
+                @foreach (string item in ViewBag.TopPublishers)
+                {
+                    <li>@item</li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-lg-4" id="comicStatsAccountWriters">
+            <div id="topCBTitleAccount">
+                Top Writers
+            </div>
+            <ul>
+                @foreach (string item in ViewBag.TopWriters)
+                {
+                    <li>@item</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <div class="titleCollDetailsTable">
+                    Title
+                </div>
+            </th>
+            <th>
+                <div class="titleCollDetailsTable">
+                    Publisher
+                </div>
+            </th>
+            <th>
+                <div class="descCollDetailsTable">
+                    Description
+                </div>
+            </th>
+            <th>
+                <div class="pubDateCollDetailsTable">
+                    Publish Date
+                </div>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.ComicsInCollection)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Publisher)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublishDate)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Details", "AccountComicDetails", new { comicId = item.ComicId })
+                </td>
+                <td>
+                    <form action="DeleteComic" method="post">
+                        <input type="submit" value="Delete">
+                        <input type="hidden" name="collectionId" id="collectionId" value="@Model.CollectionId" />
+                        <input type="hidden" name="comicId" id="comicId" value="@item.ComicId" />
+                    </form>
+
+
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+<div class="linksAtBottomCollDetailsAccount">
+
+
+    @if ((ViewBag.collectionAmount >= 100) && (ViewBag.userRole == "userS"))
+    {
+        <p>
+            Collection at maximum number of comics!
+        </p>
+    }
+    else
+    {
+        <p>
+            <a asp-action="NewComic">Add new comic</a>
+        </p>
+    }
+    <br />
+
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,44 @@
+﻿@model WebApplication.Web.Models.Comic
+
+@{
+    ViewData["Title"] = "ComicDetails";
+}
+
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-5">
+            <h2><b><class id="comicDetailsHead"> Comic Details</class></b></h2>
+            <br />
+            <h4> <b><class id="comicDetails">TITLE: </class></b> @Html.DisplayFor(model => model.Title)</h4>
+            <br />
+            <h4> <b><class id="comicDetails">PUBLISHER: </class></b> @Html.DisplayFor(model => model.Publisher)</h4>
+            <br />
+            <h4><b><class id="comicDetails">AUTHOR: </class></b>@Html.DisplayFor(model => model.Author)</h4>
+            <br />
+            <h4><b><class id="comicDetails">DATE PUBLISHED: </class></b>@Html.DisplayFor(model => model.PublishDate) </h4>
+            <br />
+            <h4><b><class id="comicDetails">DESCRIPTION: </class></b>@Html.DisplayFor(model => model.Description)</h4>
+            <br />
+
+            <h4><b><class id="comicDetails"> CHARACTERS: </class></b></h4>
+
+            @foreach (var item in Model.Characters)
+            {
+
+                <ul>
+                    <li>@Html.DisplayFor(modelItem => item)</li>
+                </ul>
+            }
+
+        </div>
+
+        <div class="col-lg-5">
+            <image src=@Model.ImageUrl></image>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+</div>

@@ -1,0 +1,98 @@
+﻿@model IEnumerable<WebApplication.Web.Models.Collection>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="totalNumber"><h3><b>@ViewBag.NumOfComicsALL</b></h3></div>
+
+<div class="containerIndexCB">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-3" id="topCBHead">
+            <h2><b>Top Comic Book Heroes</b></h2>
+            <div class="listInfo">
+                <ul>
+                    @foreach (string item in ViewBag.TopHeroesALL)
+                    {
+                        <li>@item</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-3" id="topCBHead">
+            <h2><b>Top Publishers</b></h2>
+            <div class="listInfo">
+                <ul>
+                    @foreach (string item in ViewBag.TopPublishersALL)
+                    {
+                        <li>@item</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-3" id="topCBHead">
+            <h2><b>Top Writers</b></h2>
+            <div class="listInfo">
+                <ul>
+                    @foreach (string item in ViewBag.TopWritersALL)
+                    {
+                        <li>@item</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<div class="topPublic"><h2><b>Top Public Collections</b></h2></div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <div class="tableHeadsIndexHome">
+                @Html.DisplayNameFor(model => model.UserName)
+                   </div>
+            </th>
+            
+            <th>
+                <div class="tableHeadsIndexHome">
+                    @Html.DisplayNameFor(model => model.CollectionName)
+                
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div class="links">
+                        <a href="ComicBook/Index?userName=@item.UserName">
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div class="links">
+                        @Html.DisplayFor(modelItem => item.CollectionName)
+                    </div>
+                </td>
+
+                <td>
+                    <div class="links">
+                        @Html.ActionLink("Details", actionName: "CollectionDetails", controllerName: "ComicBook", routeValues: new { collectionId = item.CollectionId })
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

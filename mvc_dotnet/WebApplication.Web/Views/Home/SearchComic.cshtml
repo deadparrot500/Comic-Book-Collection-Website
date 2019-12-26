@@ -1,0 +1,84 @@
+﻿@model IEnumerable<WebApplication.Web.Models.Comic>
+
+@{
+    ViewData["Title"] = "SearchComic";
+}
+
+<div class="searchResultsPageHeader">
+    <b>Search Results</b>
+</div>
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <div class="tableSearch">
+                    @Html.DisplayNameFor(model => model.Title)
+                        </div>
+</th>
+
+            <th>
+                <div class="tableSearch">
+                    @Html.DisplayNameFor(model => model.Publisher)
+                    </div>
+            </th>
+            <th>
+                <div class="tableSearch">
+                    @Html.DisplayNameFor(model => model.SearchCharacter)
+                    </div>
+            </th>
+            <th>
+                <div class="tableSearch">
+                    @Html.DisplayNameFor(model => model.UserName)
+                    </div>
+            </th>
+            <th>
+                <div class="tableSearch">
+                    @Html.DisplayNameFor(model => model.Collection.CollectionName)
+                    </div>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="~/ComicBook/ComicDetails?comicId=@item.ComicId">
+
+                        @Html.DisplayFor(modelItem => item.Title)
+
+                    </a>
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Publisher)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SearchCharacter)
+                </td>
+
+                <td>
+                    <a href="~/ComicBook/Index?userName=@item.UserName">
+
+                        @Html.DisplayFor(modelItem => item.UserName)
+
+                    </a>
+
+                </td>
+
+                <td>
+                    <a href="~/ComicBook/CollectionDetails?collectionId=@item.Collection.CollectionId">
+
+                        @Html.DisplayFor(modelItem => item.Collection.CollectionName)
+
+                    </a>
+
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

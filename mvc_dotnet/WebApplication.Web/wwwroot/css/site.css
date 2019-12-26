@@ -1,0 +1,215 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    margin-left: 25px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.search-container {
+    float:inherit;
+    margin-top: 12px;
+}
+
+.search-container button {
+    float:inherit;
+    padding: 1px 1px;
+    margin-top: 5px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 10px;
+    width: 90px;
+    height: 30px;
+    font-weight:900;
+    font-size:medium;
+}
+
+.body {
+    background-color:lightblue;
+    font-family: Verdana;
+}
+
+#comicDetailsHead{
+    color:blue;
+}
+
+#comicDetails {
+    color: #ee5454;
+}
+
+.accountComicDetails {
+    margin-left:0px;
+}
+
+
+.col-lg-3{
+padding-top:15px;
+}
+
+.totalNumber{
+    padding-left:500px;
+}
+
+#topCBHead{
+    color:blue;
+    font-family:Calibri;
+    font-size:large;
+}
+
+.listInfo{
+    color:darkorange;
+    font-size:30px;
+}
+
+.listInfo {
+    font-size: 20px;
+}
+
+.topPublic{
+    padding-left:600px;
+    color:blue;
+}
+.tableHeadsIndexHome{
+    font-size:20px;
+    color:red;
+}
+
+.links {
+    font-size: 18px;
+}
+
+.Index{
+    font-family:'Comic Sans MS';
+}
+
+#navbarCBCA {
+    font-size: 20px;
+    color: #f6db35;
+}
+
+/*image*/
+.col-lg-5{
+    padding-left:200px;
+    padding-top:15px;
+}
+
+.collectionDetailsHeader {
+    padding-left: 20px;
+    color: blue;
+    padding-left:600px;
+    padding-right:350px;
+    font-size:50px;
+}
+
+.collectionDetailsAccount {
+    padding-left: 650px;
+    color: #ee5454;
+    font-size: 40px;
+}
+
+#comicStatsAccountHeroes {
+    color: #e37215;
+    padding-left: 15px;
+}
+
+#comicStatsAccountPubs {
+    color: #e37215;
+    padding-left:25px;
+}
+
+#comicStatsAccountWriters {
+    color: #e37215;
+    padding-left: 15px;
+}
+
+.tableCollectionDetailsAccount{
+    padding-left:40px;
+}
+
+#topCBTitleAccount {
+    font-size: 25px;
+}
+
+.createCollectionHead{
+    padding-left:200px;
+    color:blue;
+    font-size:40px;
+}
+
+.control-label {
+    font-size: 20px;
+    color: #ee5454;
+}
+
+.CollectionsHeaderIndex{
+    padding-left:700px;
+    color:blue;
+    font-size:40px;
+}
+
+.linkToCreatNewCollection{
+    font-size:20px;
+    padding-left:700px;
+}
+.usernameInCollectionAccount{
+    font-size:20px;
+    color:red;
+}
+
+.collectionNameInCollectionAccount {
+    font-size: 20px;
+    color: red;
+}
+
+.titleCollDetailsTable{
+    font-size:20px;
+    color:darkblue;
+}
+
+.descCollDetailsTable {
+    font-size: 20px;
+    color: darkblue;
+}
+
+.pubDateCollDetailsTable {
+    font-size: 20px;
+    color: darkblue;
+}
+
+.linksAtBottomCollDetailsAccount{
+    padding-left:1700px;
+}
+
+.searchResultsPageHeader{
+    padding-left:700px;
+    font-size:30px;
+    color:blue;
+    padding-top:15px;
+}
+
+.tableSearch {
+    font-size: 20px;
+    color: red;
+}

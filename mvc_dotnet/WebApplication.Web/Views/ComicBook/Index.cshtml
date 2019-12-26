@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication.Web.Models.Collection>
+
+@{
+    ViewData["Title"] = "CollectionIndex";
+}
+
+
+<body class="Index">
+    <div class="collectionDetailsHeader">
+        Collections
+    </div>
+
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <div class="usernameInCollectionAccount">
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </div>
+                </th>
+                <th>
+                    <div class="usernameInCollectionAccount">
+                        @Html.DisplayNameFor(model => model.CollectionName)
+                    </div>
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CollectionName)
+                    </td>
+
+                    <td>
+
+                        @Html.ActionLink("Details", "CollectionDetails", new { collectionId = item.CollectionId })
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
