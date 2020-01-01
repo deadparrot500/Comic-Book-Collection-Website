@@ -1,10 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Transactions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RootFileReader.Controllers;
-using RootFileReader.DAL;
 using RootFileReader.Models;
 
 namespace RootFileReaderTests
